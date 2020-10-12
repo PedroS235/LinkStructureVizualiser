@@ -5,7 +5,10 @@ from urllib import request
 from urllib.parse import urljoin, urlparse
 from bs4 import BeautifulSoup
 import requests
+import networkx as nx
+import matplotlib.pyplot as plt
 
+G = nx.Graph()
 
 def get_all_website_links(URL, internal_urls=[]):
     """
@@ -17,27 +20,29 @@ def get_all_website_links(URL, internal_urls=[]):
         href = a.get('href')
         if not urlparse(href).scheme and urlparse(href).path:
             parsed_url = urljoin(URL, href)
-            if requests.get(parsed_url) and not parsed_url in internal_urls:
+            if not parsed_url in internal_urls:
                 internal_urls.append(parsed_url)
-                print(len(internal_urls))
+                G.add_edge(URL, href)
     return internal_urls
 
-def crawl(URL, max_iterations=10):
+def crawl(URL, max_iterations=2):
     """
     Param: URL from a website | max_iteration defines how deep we extract links
     return a sorted list of all the internal urls
     """
     curr_iteration = 0
     all_internal_urls = [URL]
-    
     for link in all_internal_urls:
         curr_iteration+=1
-        print()
-        print('ITERATION NR:', curr_iteration)
-        print()
         if curr_iteration<=max_iterations:
             all_internal_urls = get_all_website_links(link, all_internal_urls)
         else: break
-    all_internal_urls.sort()
+    #all_internal_urls.sort()
     return all_internal_urls
 
+crawl('https://wwwfr.uni.lu')
+print(list(G.edges()))
+plt.subplot(122)
+nx.draw(G, with_labels=False, font_weight='bold')
+plt.show()
+#requests.get(parsed_url) and 
