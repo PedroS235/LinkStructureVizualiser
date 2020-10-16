@@ -9,40 +9,57 @@ import networkx as nx
 import matplotlib.pyplot as plt
 
 G = nx.Graph()
+internal_urls = []
+external = []
+def isvalid(url):
+    parsed = urlparse(url)
+    return bool(parsed.scheme) and bool(parsed.netloc)
 
-def get_all_website_links(URL, internal_urls=[]):
+def get_website_links(url):
     """
-    Param : URL from the website to extract all the links
+    Returns all links that are found on 'url'
     """
-    
-    html_code = BeautifulSoup(requests.get(URL).content, "html.parser")
-    for a in html_code.findAll('a'):
-        href = a.get('href')
-        if not urlparse(href).scheme and urlparse(href).path:
-            parsed_url = urljoin(URL, href)
-            if not parsed_url in internal_urls:
-                internal_urls.append(parsed_url)
-                G.add_edge(URL, href)
-    return internal_urls
+    #domain name of the 'url' without the protocol
+    domain_name = urlparse(url).netloc
+    soup = BeautifulSoup(requests.get(url).content, 'html.parser')
 
-def crawl(URL, max_iterations=2):
+    for a_tag in soup.findAll('a'):
+        href = a_tag.get('href')
+        if href !='':
+            href = urljoin(url, href)
+            parsed_href = urlparse(href)
+            href = parsed_href.scheme + '://' + parsed_href.netloc + parsed_href.path
+            if isvalid:
+                if not href in internal_urls and domain_name in href:
+                    if requests.get(href):
+                        internal_urls.append(href)
+                        print(href)
+                else: external.append(href)
+
+def crawl(URL, max_iterations=3):
     """
     Param: URL from a website | max_iteration defines how deep we extract links
     return a sorted list of all the internal urls
     """
     curr_iteration = 0
-    all_internal_urls = [URL]
-    for link in all_internal_urls:
+    internal_urls.append(URL)
+    for link in internal_urls:
         curr_iteration+=1
+        print(curr_iteration)
         if curr_iteration<=max_iterations:
-            all_internal_urls = get_all_website_links(link, all_internal_urls)
+            get_website_links(link)
         else: break
-    #all_internal_urls.sort()
-    return all_internal_urls
 
+import cProfile, pstats, io
+from pstats import SortKey
+pr = cProfile.Profile()
+pr.enable()
 crawl('https://wwwfr.uni.lu')
-print(list(G.edges()))
-plt.subplot(122)
-nx.draw(G, with_labels=False, font_weight='bold')
-plt.show()
-#requests.get(parsed_url) and 
+pr.disable()
+s = io.StringIO()
+sortby = SortKey.CUMULATIVE
+ps = pstats.Stats(pr, stream=s).sort_stats(sortby)
+ps.print_stats()
+print(s.getvalue())
+print('Internal URLS: ', len(internal_urls))
+print('External URLS: ', len(internal_urls))
