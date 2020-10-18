@@ -22,10 +22,10 @@ def get_all_website_links(URL, internal_urls=[]):
             parsed_url = urljoin(URL, href)
             if not parsed_url in internal_urls:
                 internal_urls.append(parsed_url)
-                G.add_edge(URL, href)
+                G.add_edge(URL, parsed_url)
     return internal_urls
 
-def crawl(URL, max_iterations=2):
+def crawl(URL, max_iterations=3):
     """
     Param: URL from a website | max_iteration defines how deep we extract links
     return a sorted list of all the internal urls
@@ -38,11 +38,12 @@ def crawl(URL, max_iterations=2):
             all_internal_urls = get_all_website_links(link, all_internal_urls)
         else: break
     #all_internal_urls.sort()
+    print(len(all_internal_urls))
     return all_internal_urls
 
 crawl('https://wwwfr.uni.lu')
 print(list(G.edges()))
-plt.subplot(122)
-nx.draw(G, with_labels=False, font_weight='bold')
+nx.draw(G, with_labels=True, font_size='8')
 plt.show()
 #requests.get(parsed_url) and 
+#https://infallible-varahamihira-e94f86.netlify.app
