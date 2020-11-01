@@ -68,7 +68,10 @@ def crawl(url, max_iterations=6):
         else: break
     return edges
 
-crawl('https://networkx.org/documentation/stable/reference/generators.html')
+crawl('https://infallible-varahamihira-e94f86.netlify.app/contact.html')
+
+#==========================================================
+#networkX section
 
 import networkx as nx
 import matplotlib.pyplot as plt
@@ -81,6 +84,8 @@ for node in nodes:
 #add edges to the graph G with wheights
 for edge in edges:
     G.add_edge(edge['source'], edge['target'], value=edge['value'])
+
+nx.write_edgelist(G, 'edge.csv')
 """
 node_color = []
 # for each node in the graph
@@ -144,5 +149,5 @@ for edge in G.edges(data=True):
         edge_color.append('gray') 
 """
 
-nx.draw(G, with_labels=False, width=2)
-plt.show()
+#nx.draw(G, with_labels=False, width=2)
+#plt.show()
