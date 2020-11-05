@@ -1,5 +1,5 @@
 """
-This module creates a graph with the help of the library networkX and
+This class creates a graph with the help of the library networkX and
 then shows the graph in a visual image with the help of the library Matplotlib
 """
 import networkx as nx
@@ -108,3 +108,4 @@ class Graph():
         
         #show the graph 'G' with matplotlib
         plt.show()
+    
