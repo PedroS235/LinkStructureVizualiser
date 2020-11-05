@@ -7,11 +7,12 @@ import requests
 import networkx as nx
 import matplotlib.pyplot as plt
 
-#variable to store the different nodes categorized by groups (for graph)
-nodes = [] # [{'id":'url', 'group':1}]
+#variable to store the different nodes
+nodes = [] 
+#variable to store the different edges
 edges=[]
 
-#create a directed graph
+#create an empty directed graph
 G = nx.DiGraph()
 
 def isvalid(url):
@@ -48,7 +49,7 @@ def get_website_links(url):
                 if href not in nodes:
                     nodes.append(href)
 
-def crawl(url, max_iterations=1):
+def crawl(url, max_iterations=50):
     """
     Param: URL from a website | max_iteration defines how deep we extract links
     return a sorted list of all the internal urls
@@ -62,14 +63,12 @@ def crawl(url, max_iterations=1):
             get_website_links(node)
         else: break
 
-crawl('https://www.python.org')
 
-
-
+#Graph
 def setNodeAttr():
     count = 0
     r=0
-    g=0.8
+    g=1
     b=0
     for node in nodes:
         for edge in edges:
@@ -90,7 +89,7 @@ def setNodeAttr():
 
 def setEdgeAttr():
     r=0
-    g=1
+    g=0.8
     b=0
     prev_edge = edges[0][0]
     G.add_edge(edges[0][0], edges[0][1], r=r, g=g, b=b)
@@ -110,21 +109,24 @@ def setEdgeAttr():
         else:
             if prev_edge != edges[e][0]:
                 if g>=0.2:
-                    g-=0.2
+                    g-=0.1
                 elif r<=0.8:
-                    r+=0.2
+                    r+=0.1
                 elif b<=0.8:
-                    b+=0.2
+                    b+=0.1
                 else:
                     g = 0.5
                     b=0.5
             G.add_edge(edges[e][0], edges[e][1], r=r, g=g, b=b)
-                    
-setEdgeAttr()
-#G.add_edges_from(edges)
-setNodeAttr()
 
-print(G.nodes())
+
+
+
+setEdgeAttr()
+
+setNodeAttr()    
+
+#print(G.edges.data())
 node_size=[]
 for node in G.nodes(data=True):
     node_size.append(300+10*node[1]['size'])
@@ -137,38 +139,8 @@ edge_color=[]
 for edge in G.edges(data=True):
     edge_color.append((edge[2]['r'], edge[2]['g'], edge[2]['b']))
 
-nx.draw(G, with_labels=False, width=2, node_size=node_size, node_color=node_color, edge_color=edge_color)
+nx.draw(G, with_labels=False, width=2, node_size=node_size, node_color=node_color)#, edge_color=edge_color)
 plt.show()
 
-#==========================================================
-#networkX section
-"""
-#add the nodes to the graph G with attributes
-for node in nodes:
-    G.add_node(node['id'], group=node['group'])
 
-#add edges to the graph G with wheights
-for edge in edges:
-    G.add_edge(edge['source'], edge['target'], value=edge['value'])
-
-nx.write_edgelist(G, 'edge.txt')
-"""
-"""
-node_color = []
-# for each node in the graph
-for node in G.nodes(data=True):
-
-    if 1 == node[1]['group']:
-        node_color.append('blue')
-"""
-
-"""
-edge_color=[]
-
-for edge in G.edges(data=True):
-    if edge[2]['value']==1:
-        edge_color.append('violet')
-    if edge[2]['value']==2:
-        edge_color.append('gray') 
-"""
 
