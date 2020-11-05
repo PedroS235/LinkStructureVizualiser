@@ -1,0 +1,10 @@
+#/Users/pedro/GitHub/LinkStructureVizualiser/link_extractor.py
+# GMT Sun Nov  1 11:00:35 2020
+# 
+https://infallible-varahamihira-e94f86.netlify.app/ https://infallible-varahamihira-e94f86.netlify.app/about.html https://infallible-varahamihira-e94f86.netlify.app/contact.html https://infallible-varahamihira-e94f86.netlify.app/explanation.html https://infallible-varahamihira-e94f86.netlify.app/brokenLink.html
+https://infallible-varahamihira-e94f86.netlify.app/about.html https://infallible-varahamihira-e94f86.netlify.app/ https://infallible-varahamihira-e94f86.netlify.app/contact.html
+https://infallible-varahamihira-e94f86.netlify.app/contact.html https://infallible-varahamihira-e94f86.netlify.app/
+https://infallible-varahamihira-e94f86.netlify.app/explanation.html https://infallible-varahamihira-e94f86.netlify.app/ https://infallible-varahamihira-e94f86.netlify.app/link.html https://infallible-varahamihira-e94f86.netlify.app/graph.html https://infallible-varahamihira-e94f86.netlify.app/brokenLink.html
+https://infallible-varahamihira-e94f86.netlify.app/brokenLink.html https://infallible-varahamihira-e94f86.netlify.app/
+https://infallible-varahamihira-e94f86.netlify.app/link.html
+https://infallible-varahamihira-e94f86.netlify.app/graph.html

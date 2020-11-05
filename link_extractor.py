@@ -5,13 +5,15 @@ from urllib.parse import urljoin, urlparse
 from bs4 import BeautifulSoup
 import requests
 
-#variable to store the different nodes categorized by groups
+#variable to store the different nodes categorized by groups (for graph)
 nodes = [] # [{'id":'url', 'group':1}]
-#variable to store the different edges categorized by values(wheights)
+
+#variable to store the different edges categorized by values(wheights) (for graph)
 edges = [] # [{'source":'url1', 'target':'url2', 'value':1}]
+
+#stocks the differnts links without doubles 
 links = []
 
-value=1
 
 def isvalid(url):
     """
@@ -27,29 +29,24 @@ def get_website_links(url):
     """
     #domain name of the 'url' without the protocol
     domain_name = urlparse(url).netloc
+    #html content of the webpage
     soup = BeautifulSoup(requests.get(url).content, 'html.parser')
-    group_=1
-    it=0
+
     for a_tag in soup.findAll('a'):
-        it+=1
-        group_+=1
+        #href that is in the <a> tag
         href = a_tag.get('href')
+        #checks if the href is not empty
         if href !='' or href != None:
+            #joins the href to the url
             href = urljoin(url, href)
-            parsed_href = urlparse(href)
-            href = parsed_href.scheme + '://' + parsed_href.netloc + parsed_href.path
+            #no need: parsed_href = urlparse(href)
+            #no need: href = parsed_href.scheme + '://' + parsed_href.netloc + parsed_href.path
             if isvalid(href) and domain_name in href:
+                #checks if the href(url) is not broken
                 #if requests.get(href):
-                if href in links:
-                    edges.append({'source':url, 'target':href, 'value':2})
-                else:
-                    edges.append({'source':url, 'target':href, 'value':1})
+                edges.append({'source':url, 'target':href, 'value':2})
                 if not href in links:
-                    #if requests.get(href): #I removed the checker for doubles
-                    if(group_>=2):
-                        group_ = 2
-                    
-                    nodes.append({'id':href, 'group':group_})
+                    nodes.append({'id':href, 'group':1})
                     links.append(href)
 
 def crawl(url, max_iterations=6):
@@ -68,13 +65,14 @@ def crawl(url, max_iterations=6):
         else: break
     return edges
 
-crawl('https://infallible-varahamihira-e94f86.netlify.app/contact.html')
+crawl('https://infallible-varahamihira-e94f86.netlify.app/')
 
 #==========================================================
 #networkX section
 
 import networkx as nx
 import matplotlib.pyplot as plt
+#create a directed graph
 G = nx.DiGraph()
 
 #add the nodes to the graph G with attributes
@@ -85,7 +83,7 @@ for node in nodes:
 for edge in edges:
     G.add_edge(edge['source'], edge['target'], value=edge['value'])
 
-nx.write_edgelist(G, 'edge.csv')
+nx.write_edgelist(G, 'edge.txt')
 """
 node_color = []
 # for each node in the graph
@@ -93,52 +91,13 @@ for node in G.nodes(data=True):
 
     if 1 == node[1]['group']:
         node_color.append('blue')
-    
-    if 2 == node[1]['group']:
-        node_color.append('orange')
-    
-    if 3 == node[1]['group']:
-        node_color.append('yellow')
-    if 4 == node[1]['group']:
-        node_color.append('red')
-    if 5 == node[1]['group']:
-        node_color.append('green')
-    if 6 == node[1]['group']:
-        node_color.append('purple')
-    if 7 == node[1]['group']:
-        node_color.append('green')
-    if 8 == node[1]['group']:
-        node_color.append('purple')
-    if 9 == node[1]['group']:
-        node_color.append('green')
-    if 10 == node[1]['group']:
-        node_color.append('purple')
 
 node_size=[]
 for node in G.nodes(data=True):
     if 1 == node[1]['group'] :
         node_size.append(500*1)
-    
-    if 2 == node[1]['group']:
-        node_size.append(200*1)
-    
-    if 3 == node[1]['group']:
-        node_size.append(200*0.8)
-    if 4 == node[1]['group']:
-        node_size.append(200*0.7)
-    if 5 == node[1]['group']:
-        node_size.append(200*0.6)
-    if 6 == node[1]['group']:
-        node_size.append(200*0.5)
-    if 7 == node[1]['group']:
-        node_size.append(200*0.5)
-    if 8 == node[1]['group']:
-        node_size.append(200*0.5)
-    if 9 == node[1]['group']:
-        node_size.append(200*0.5)
-    if 10 == node[1]['group']:
-        node_size.append(200*0.5)
 """
+
 """
 edge_color=[]
 
@@ -149,5 +108,5 @@ for edge in G.edges(data=True):
         edge_color.append('gray') 
 """
 
-#nx.draw(G, with_labels=False, width=2)
-#plt.show()
+nx.draw(G, with_labels=False, width=2)
+plt.show()
