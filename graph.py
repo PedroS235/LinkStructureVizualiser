@@ -77,7 +77,7 @@ class Graph():
                         g = 0.5
                         b=0.5
                 self.G.add_edge(self.edges[e][0], self.edges[e][1], r=r, g=g, b=b)
-                print(self.edges[e][0], self.edges[e][1])
+                
     def drawGraph(self):
         """
         This function will draw the graph 'G' and will assign
