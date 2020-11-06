@@ -20,7 +20,6 @@ class WebScrapper():
         #variable to store the links as edges for the graph
         self.edges = []
         self.crawl(url)
-        print('run')
     
     def getNodes(self):
         """

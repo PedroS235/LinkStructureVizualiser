@@ -1,10 +1,11 @@
-import Graph
-import WebScrapper
+import graph
+import webScrapper
 
 class Main():
-    def __init___(self):
+    def __init__(self):
         url = 'https://infallible-varahamihira-e94f86.netlify.app/'
-        print('helo')
-        WebScrapper.WebScrapper(url)
-
+        ws = webScrapper.WebScrapper(url)
+        self.nodes = ws.getNodes()
+        self.edges = ws.getEdges()
+        g = graph.Graph(self.nodes, self.edges)
 Main()      
