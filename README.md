@@ -6,8 +6,13 @@ Link Structure Vizualiser is a program that will crawl a website and then scrape
 
 # REQUIREMENTS
 To be able to run this program, you will need to install some libraries which are:
+
     - requests (pip install requests)
+    
     - BeatifullSoup4 (pip install beautifulsoup4)
+    
     - networkX (pip install networkx)
+    
     - matplotlib (pip install matplotlib)
+    
     - spicy (pip intall spicy)
