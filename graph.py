@@ -31,7 +31,7 @@ class Graph():
                 if edge[0] == node:
                     count+=1
             self.G.add_node(node, size=count, r=r, g=g, b=b)
-            
+
             if g>=0.2:
                 g-=0.2
             elif r<=0.8:
@@ -42,7 +42,7 @@ class Graph():
                 g = 0.5
                 b=0.5
             count=0
-    
+
     def createEdgeWAttr(self):
         """
         This function add edges to the graph 'G' with attributes color RGB
@@ -80,7 +80,8 @@ class Graph():
 
     def drawGraph(self):
         """
-        This function will draw the graph 'G' and will assign the different parameters to the draw function
+        This function will draw the graph 'G' and will assign
+         the different parameters to the draw function
         """
         #calls the function createNodesWAttr() to add the nodes to the graph 'G'
         self.createEdgeWAttr()
@@ -104,8 +105,7 @@ class Graph():
             edge_color.append((edge[2]['r'], edge[2]['g'], edge[2]['b']))
 
         #draws the graph 'G'
-        nx.draw(self.G, with_labels=False, width=2, node_size=node_size, node_color=node_color)#, edge_color=edge_color)
-        
+        nx.draw(self.G, with_labels=False, width=2, node_size=node_size, node_color=node_color, edge_color=edge_color)
+
         #show the graph 'G' with matplotlib
         plt.show()
-    

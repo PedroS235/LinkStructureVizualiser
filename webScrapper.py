@@ -19,7 +19,21 @@ class WebScrapper():
         self.nodes = []
         #variable to store the links as edges for the graph
         self.edges = []
+        self.crawl(url)
+        print('run')
     
+    def getNodes(self):
+        """
+        returns the nodes
+        """
+        return self.nodes
+
+    def getEdges(self):
+        """
+        returns the edges
+        """
+        return self.edges
+
     def is_valid(self, url):
         """
         input: - url = URL/link of a website
