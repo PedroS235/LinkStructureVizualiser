@@ -7,5 +7,5 @@ class Main():
         ws = webScrapper.WebScrapper(url)
         self.nodes = ws.getNodes()
         self.edges = ws.getEdges()
-        g = graph.Graph(self.nodes, self.edges)
+        graph.Graph(self.nodes, self.edges)
 Main()      
