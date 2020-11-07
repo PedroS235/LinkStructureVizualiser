@@ -42,8 +42,8 @@ The programming tools that are covered in this BSP are the following:
 
 ---
 
-# REQUIREMENTS To Run the Program
-To be able to run this program, you will need to install some libraries which are:
+### REQUIREMENTS To Run the Program
+> To be able to run this program, you will need to install some libraries which are:
 
  - requests (pip install requests)
     
