@@ -9,13 +9,18 @@ The second involves in learning how to program, but more importantly being able 
 In this project, Python was the choice for the programming language, and we will take advantage of some libraries to implement in the program.
 This program can be later used to see how the structure of a website is and to perceive if there are any clusters. If there are any, maybe then the website can be optimised. 
 
+---
+
 ## 2 - Main required competencies before starting the BSP
 Before starting this bachelor semester project, a good foundation in Python was necessary. This is because Python is the programming language that will be used to build this project. In conjunction with Python, the basics of HTML and CSS was required to create a website that will be used to test the program.
+
+---
 
 ## 3 - Scientific deliverables of the project
 Analysing how the different links appear in a webpage is one scientific aspect of this Bachelor Semester Project. For the second aspect, the student will analyse the actual structure of the corresponding graph. 
 The fact of analysing the structure of the graph allows the student to ask himself if the graph makes any sense or if the graph can in any way help improving the structure of the website in question.
 
+--- 
 
 ## 4 - Technical deliverables of the project
 Lastly, the technological aspects of this project, cover all the technologies involved to create and manage this project.
@@ -30,16 +35,17 @@ The programming tools that are covered in this BSP are the following:
  
  - Using an IDE (Integrated Development Environment).
 
+---
 
 # REQUIREMENTS
 To be able to run this program, you will need to install some libraries which are:
 
-    - requests (pip install requests);
+ - requests (pip install requests)
     
-    - BeatifullSoup4 (pip install beautifulsoup4);
+ - BeatifullSoup4 (pip install beautifulsoup4)
     
-    - networkX (pip install networkx)
+ - networkX (pip install networkx)
     
-    - matplotlib (pip install matplotlib);
+ - matplotlib (pip install matplotlib)
     
-    - spicy (pip intall spicy);
+ - spicy (pip intall spicy)
