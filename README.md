@@ -1,5 +1,5 @@
 # BSP – Phase I Deliverable
- # Visualizing link structures of web applications
+## Visualizing link structures of web applications
 
 
 # 1 - BSP’s main objectives
