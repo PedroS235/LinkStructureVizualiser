@@ -1,7 +1,7 @@
 # BSP – Phase I Deliverable
 # _Visualizing link structures of web applications_
 
-
+***
 ## 1 - BSP’s main objectives
 This Bachelor Semester Project as two main objectives.
 
