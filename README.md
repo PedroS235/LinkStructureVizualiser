@@ -56,7 +56,7 @@ The programming tools that are covered in this BSP are the following:
     
  - spicy (pip intall spicy)
  
- '''javascript
+```javascript
  var x =1
  var y = 0
- '''
+```
