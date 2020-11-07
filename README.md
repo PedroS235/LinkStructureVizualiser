@@ -45,7 +45,7 @@ The programming tools that are covered in this BSP are the following:
 
 ## REQUIREMENTS To Run the Program
 > **To be able to run this program, you will need to install some libraries which are:**
-'''css
+
  - requests (pip install requests)
     
  - BeatifullSoup4 (pip install beautifulsoup4)
@@ -55,4 +55,8 @@ The programming tools that are covered in this BSP are the following:
  - matplotlib (pip install matplotlib)
     
  - spicy (pip intall spicy)
+ 
+ '''javascript
+ var x =1
+ var y = 0
  '''
