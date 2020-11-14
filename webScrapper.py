@@ -7,20 +7,26 @@ from bs4 import BeautifulSoup
 import requests
 
 class WebScrapper():
-    def __init__(self, url, nbr_iterations=1):
+    def __init__(self):
         """
         input: 
             - url = URL of the website
             - nbr_iterations = number of times to crawl the website (default value:1)
         """
-        self.url = url
-        self.nbr_iterations = nbr_iterations
+        self.nbr_iterations = 1
         #variable to store the links as nodes for the graph
         self.nodes = []
         #variable to store the links as edges for the graph
         self.edges = []
-        self.crawl(url)
+        #variable for knowing if ignore the broken links (default=False)
+        self.broken_links = False
     
+    def set_nbr_iterations(self, n):
+        """
+        Set's the number of iterations
+        """       
+        self.nbr_iterations = n
+
     def getNodes(self):
         """
         returns the nodes
@@ -32,6 +38,14 @@ class WebScrapper():
         returns the edges
         """
         return self.edges
+
+    def setBrokenLink(self, state):
+        """
+        Param: state = True/False 
+                    - True: ignore broken links
+                    - False: accept broken links
+        """
+        self.broken_links = state
 
     def is_valid(self, url):
         """
@@ -66,12 +80,16 @@ class WebScrapper():
                 #cleans the href
                 href = parsed_href.scheme + '://' + parsed_href.netloc + parsed_href.path
                 if self.is_valid(href) and domain_name in href:
-                    #checks if the href(url) is not broken
-                    if requests.get(href):
+                    if self.broken_links:
+                        #checks if the href(url) is not broken
+                        if requests.get(href):
+                            self.edges.append((url, href))
+                            if href not in self.nodes:
+                                self.nodes.append(href)
+                    else:
                         self.edges.append((url, href))
                         if href not in self.nodes:
                             self.nodes.append(href)
-    
     def crawl(self, url):
         """
         This function crawls a website and scrapes all the links from it.
@@ -95,6 +113,15 @@ class WebScrapper():
         """  
         nodes_file = open('nodes.txt', 'w')
         edges_file = open('edges.txt', 'w')
-        for node, edge in self.nodes, self.edges:
-            nodes_file.write(node, '\n')
-            edges_file.write(edge, '\n')
+        count = 0
+        for node in self.nodes:
+            count+=1
+            t = '[' + str(count) + ']->' + node + '\n'
+            nodes_file.write(t)
+        nodes_file.write('Total number of nodes: ' + str(count))
+        count=0
+        for edge in self.edges:
+            count+=1
+            t = '[' + str(count) + ']->' + '(' + edge[0] + ', ' + edge[1] + ')' + '\n'
+            edges_file.write(t)
+        edges_file.write('Total number of edges: ' + str(count))
