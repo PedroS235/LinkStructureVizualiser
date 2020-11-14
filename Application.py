@@ -1,5 +1,5 @@
-import graph
-import webScrapper
+import Graph
+import WebScrapper
 import tkinter as tk
 
 
@@ -22,8 +22,8 @@ class Application(tk.Frame):
         """
         This method creates the graph when the button input is clicked
         """
-        self.ws = webScrapper.WebScrapper()
-        self.G = graph.Graph()
+        self.ws = WebScrapper.WebScrapper()
+        self.G = Graph.Graph()
         url = self.input_entry.get()
         #checks if the input URL is valid 
         if self.ws.is_valid(url):
