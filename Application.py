@@ -44,10 +44,15 @@ class Application(tk.Frame):
         """
         This method will display the graph when the button "show graph" is clicked
         """
-        if self.prev_nbr_of_itr != self.nbrOfItr_entry.get():
-            self.create_graph()
-        self.G.drawGraph(self.nodes, self.edges, self.nodeVar.get(), self.edgeVar.get())
-        self.G.showGraph()
+        url = self.input_entry.get()
+        #checks if the input URL is valid 
+        if self.ws.is_valid(url):
+            if self.prev_nbr_of_itr != self.nbrOfItr_entry.get():
+                self.create_graph()
+            self.G.drawGraph(self.nodes, self.edges, self.nodeVar.get(), self.edgeVar.get())
+            self.G.showGraph()
+        else:
+            messagebox.showerror("Invalid URL", "Please make sure that the URL is valid!")
 
     def open_nodeData(self):
         """
@@ -140,9 +145,23 @@ class Application(tk.Frame):
         self.bl_checkBox.place(x=0, y=100)
 
 root = tk.Tk()
+#set the window
 root.title('Link Structure Vizualizer')
 root.iconbitmap('images/icon.ico')
 root.geometry("700x250")
 root.configure(bg='#0A7599')
+
+# Gets the requested values of the height and widht.
+windowWidth = root.winfo_reqwidth()
+windowHeight = root.winfo_reqheight()
+ 
+# Gets both half the screen width/height and window width/height
+positionRight = int(root.winfo_screenwidth()/2 - windowWidth/2)
+positionDown = int(root.winfo_screenheight()/2 - windowHeight/2)
+ 
+# Positions the window in the center of the page.
+root.geometry("+{}+{}".format(positionRight, positionDown))
+
+#initialise the application
 app = Application(master=root)
 app.mainloop()

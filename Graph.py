@@ -61,6 +61,7 @@ class Graph():
                         g = 0.5
                         b=0.5
                 self.G.add_edge(self.edges[e+1][0], self.edges[e+1][1], r=r, g=g, b=b)         
+                self.G.add_edge(self.edges[e][0], self.edges[e][1], r=r, g=g, b=b)         
             else:
                 if prev_edge != self.edges[e][0]:
                     if g>=0.2:
@@ -72,6 +73,7 @@ class Graph():
                     else:
                         g = 0.5
                         b=0.5
+                    prev_edge = self.edges[e][0]
                 self.G.add_edge(self.edges[e][0], self.edges[e][1], r=r, g=g, b=b)
                 
     def drawGraph(self, nodes, edges, colorNodes_state='On', colorEdge_state='Off'):
@@ -83,15 +85,15 @@ class Graph():
         self.nodes = nodes
         self.edges = edges
 
+        #calls the function createNodesWAttr() to add the nodes to the graph 'G'
+        self.createNodeWAttr()
+
+        #creates a list with the corresponding sizes for nodes
+        node_size=[]
+        for node in self.G.nodes(data=True):
+            node_size.append(300+10*node[1]['size'])
+
         if colorNodes_state == "On":
-            #calls the function createNodesWAttr() to add the nodes to the graph 'G'
-            self.createNodeWAttr()
-
-            #creates a list with the corresponding sizes for nodes
-            node_size=[]
-            for node in self.G.nodes(data=True):
-                node_size.append(300+10*node[1]['size'])
-
             #creates a list with corresponding colors for the nodes
             node_color=[]
             for node in self.G.nodes(data=True):
@@ -119,10 +121,10 @@ class Graph():
             nx.draw(self.G, with_labels=False, width=2, node_size=node_size, node_color=node_color)
 
         elif colorNodes_state == 'Off' and colorEdge_state == 'On':
-            nx.draw(self.G, with_labels=False, width=2, edge_color=edge_color)
+            nx.draw(self.G, with_labels=False, width=2, node_size=node_size, edge_color=edge_color)
             
         else:
-            nx.draw(self.G, with_labels=False, width=2)
+            nx.draw(self.G, with_labels=False, width=2, node_size=node_size)
 
     def showGraph(self):
         #show the graph 'G' with matplotlib
