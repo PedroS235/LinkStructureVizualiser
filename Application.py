@@ -1,7 +1,7 @@
 import Graph
 import WebScrapper
 import tkinter as tk
-
+from tkinter import messagebox
 
 class Application(tk.Frame):
     def __init__(self, master=None):
@@ -38,8 +38,8 @@ class Application(tk.Frame):
             self.edgeData_btn['state'] = tk.NORMAL
             self.prev_nbr_of_itr = self.nbrOfItr_entry.get()
         else:
-            tk.messagebox.showerror("Invalid URL", "Please make sure that the URL is valid!")
-        print("yes")
+            messagebox.showerror("Invalid URL", "Please make sure that the URL is valid!")
+
     def show_graph(self):
         """
         This method will display the graph when the button "show graph" is clicked
@@ -54,16 +54,26 @@ class Application(tk.Frame):
         This method will open a .txt file, containing all the nodes 
         of the graph, when the button "View the nodes data" is clicked
         """
-        from os import startfile
-        startfile("nodes.txt")
+        import os, sys, subprocess
+
+        if sys.platform == "win32":
+            os.startfile("nodes.txt")
+        else:
+            opener ="open" if sys.platform == "darwin" else "xdg-open"
+            subprocess.call([opener, "nodes.txt"])
 
     def open_edgeData(self):
         """"
         This method will open a .txt file, containing all the edges 
         of the graph, when the button "View the edges data" is clicked
         """
-        from os import startfile
-        startfile("edges.txt")
+        import os, sys, subprocess
+
+        if sys.platform == "win32":
+            os.startfile("edges.txt")
+        else:
+            opener ="open" if sys.platform == "darwin" else "xdg-open"
+            subprocess.call([opener, "edges.txt"])
 
     def disableBtn(self):
         self.show_btn['state'] = tk.DISABLED
@@ -83,11 +93,12 @@ class Application(tk.Frame):
         self.settings_frame = tk.LabelFrame(root, text="Settings", bg='#0A7599')
 
         #creating the buttons
-        self.input_btn = tk.Button(root, text="Input", padx=5, pady=2, font=("Consolas", 14), border=0, bg='#04A2D6', activebackground='#02EAFD', fg='#ffffff', activeforeground='#ffffff', command=self.create_graph)
-        self.show_btn = tk.Button(root, text="View the graph", padx=5, pady=2, state=tk.DISABLED,  font=("Consolas", 14), border=0, bg='#04A2D6', activebackground='#02EAFD', fg='#ffffff', activeforeground='#ffffff', command=self.show_graph)
-        self.nodeData_btn = tk.Button(root, text="View the nodes data", padx=5, pady=2, state=tk.DISABLED, font=("Consolas", 14), border=0, bg='#04A2D6', activebackground='#02EAFD', fg='#ffffff', activeforeground='#ffffff', command=self.open_nodeData)
-        self.edgeData_btn = tk.Button(root, text="View the edges data", padx=5, pady=2, state=tk.DISABLED, font=("Consolas", 14), border=0, bg='#04A2D6', activebackground='#02EAFD', fg='#ffffff', activeforeground='#ffffff', command=self.open_edgeData)
-        self.instructions_btn = tk.Button(root, text="Instructions", padx=5, pady=2, font=("Consolas", 14), border=0, bg='#04A2D6', activebackground='#02EAFD', fg='#ffffff', activeforeground='#ffffff')
+        #, bg='#04A2D6', activebackground='#02EAFD', fg='#ffffff', activeforeground='#ffffff',
+        self.input_btn = tk.Button(root, text="Input", padx=5, pady=2, font=("Consolas", 14), border=0, command=self.create_graph)
+        self.show_btn = tk.Button(root, text="View the graph", padx=5, pady=2, state=tk.DISABLED,  font=("Consolas", 14), border=0, command=self.show_graph)
+        self.nodeData_btn = tk.Button(root, text="View the nodes data", padx=5, pady=2, state=tk.DISABLED, font=("Consolas", 14), border=0, command=self.open_nodeData)
+        self.edgeData_btn = tk.Button(root, text="View the edges data", padx=5, pady=2, state=tk.DISABLED, font=("Consolas", 14), border=0, command=self.open_edgeData)
+        self.instructions_btn = tk.Button(root, text="Instructions", padx=5, pady=2, font=("Consolas", 14), border=0)
         
         #creating the entrys
         self.input_entry = tk.Entry(root, font=("Consolas", 14))

@@ -1,6 +1,6 @@
-[1]->https://wwwfr.uni.lu/
-[2]->https://wwwfr.uni.lu
-[3]->https://wwwfr.uni.lu/etudiants/demandes_d_admission_reinscriptions
+[1]->https://wwwfr.uni.lu
+[2]->https://wwwfr.uni.lu/etudiants/demandes_d_admission_reinscriptions
+[3]->https://wwwfr.uni.lu/
 [4]->https://wwwfr.uni.lu/universite
 [5]->https://wwwfr.uni.lu/universite/presentation
 [6]->https://wwwfr.uni.lu/universite/actualites
@@ -96,28 +96,4 @@
 [96]->https://wwwfr.uni.lu/universite/presentation/galerie_de_videos
 [97]->https://wwwfr.uni.lu/legal_notice
 [98]->https://wwwfr.uni.lu/privacy_notice
-[99]->https://wwwfr.uni.lu/layout/set/print/etudiants/demandes_d_admission_reinscriptions
-[100]->https://wwwfr.uni.lu/etudiants/demandes_d_admission_reinscriptions/conditions_d_eligibilite_pour_etudiants_non_ue
-[101]->https://wwwfr.uni.lu/etudiants/demandes_d_admission_reinscriptions/information_sur_les_processus_d_inscription
-[102]->https://wwwfr.uni.lu/etudiants/demandes_d_admission_reinscriptions/inscriptions_ue_choix_du_bachelor
-[103]->https://wwwfr.uni.lu/etudiants/demandes_d_admission_reinscriptions/inscriptions_ue_choix_du_master
-[104]->https://wwwfr.uni.lu/etudiants/demandes_d_admission_reinscriptions/inscriptions_ue_choix_de_la_formation_qualifiante_ou_continue
-[105]->https://wwwfr.uni.lu/etudiants/demandes_d_admission_reinscriptions/etudiants_invites_unigr
-[106]->https://wwwfr.uni.lu/etudiants/demandes_d_admission_reinscriptions/auditeurs_libres
-[107]->https://wwwfr.uni.lu/etudiants/demandes_d_admission_reinscriptions/summer_school_uliss
-[108]->https://wwwfr.uni.lu/etudiants/demandes_d_admission_reinscriptions/reinscriptions
-[109]->https://wwwfr.uni.lu/universite/presentation/calendrier_academique
-[110]->https://wwwfr.uni.lu/layout/set/print/universite
-[111]->https://wwwfr.uni.lu/presse/idees_de_sujets/l_universite_et_le_luxembourg
-[112]->https://wwwfr.uni.lu/presse/idees_de_sujets/un_environnement_innovateur
-[113]->https://wwwfr.uni.lu/universite/presentation/mission
-[114]->https://wwwfr.uni.lu/universite/presentation/nos_atouts
-[115]->https://wwwfr.uni.lu/universite/presentation/facts
-[116]->https://wwwfr.uni.lu/universite/presentation/rankings_accreditations
-[117]->https://wwwfr.uni.lu/universite/presentation/etapes_cles
-[118]->https://wwwfr.uni.lu/universite/presentation/gouvernance
-[119]->https://wwwfr.uni.lu/universite/presentation/competitive_promotion
-[120]->https://wwwfr.uni.lu/universite/presentation/organigrammes
-[121]->https://wwwfr.uni.lu/universite/presentation/espace_cultures
-[122]->https://wwwfr.uni.lu/layout/set/print/universite/presentation
-Total number of nodes: 122
+Total number of nodes: 98
