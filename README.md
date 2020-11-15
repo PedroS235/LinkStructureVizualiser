@@ -47,13 +47,13 @@ The programming tools that are covered in this BSP are the following:
 > **To be able to run this program, you will need to install some libraries which are:**
 
 ```
- - requests (pip install requests)
+ - requests (in the terminal: pip install requests)
     
- - BeatifullSoup4 (pip install beautifulsoup4)
+ - BeatifullSoup4 (in the terminal: pip install beautifulsoup4)
     
- - networkX (pip install networkx)
+ - networkX (in the terminal: pip install networkx)
     
- - matplotlib (pip install matplotlib)
+ - matplotlib (in the terminal: pip install matplotlib)
     
- - spicy (pip intall spicy)
+ - spicy (in the terminal: pip intall spicy)
 ```
