@@ -80,6 +80,7 @@ class WebScrapper():
                 #cleans the href
                 href = parsed_href.scheme + '://' + parsed_href.netloc + parsed_href.path
                 if self.is_valid(href) and domain_name in href:
+                    href = href.replace(" ", "").lower()
                     if self.broken_links:
                         #checks if the href(url) is not broken
                         if requests.get(href):

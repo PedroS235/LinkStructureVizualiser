@@ -17,6 +17,7 @@ class Application(tk.Frame):
         self.edge_checkBox.deselect()
         self.bl_checkBox.deselect()
         self.nbrOfItr_entry.insert(0, 1)
+        self.input_entry.insert(0, "https://infallible-varahamihira-e94f86.netlify.app/")
 
     def create_graph(self):
         """
@@ -24,7 +25,7 @@ class Application(tk.Frame):
         """
         self.ws = WebScrapper.WebScrapper()
         self.G = Graph.Graph()
-        url = self.input_entry.get()
+        url = self.input_entry.get().replace(" ", "")
         #checks if the input URL is valid 
         if self.ws.is_valid(url):
             self.ws.set_nbr_iterations(int(self.nbrOfItr_entry.get()))
@@ -111,7 +112,7 @@ class Application(tk.Frame):
         
         #Creating th labels
         self.input_label = tk.Label(root, text="URL:", font=("Consolas", 14), bg='#0A7599')
-        self.nbrOfItr_label = tk.Label(self.settings_frame, text="Number of iterations:", font=("Consolas", 12), bg='#0A7599')
+        self.nbrOfItr_label = tk.Label(self.settings_frame, text="Number of pages to crawl:", font=("Consolas", 12), bg='#0A7599')
 
         #creating the chekboxes
         self.node_checkBox = tk.Checkbutton(self.settings_frame, text="Node color", variable=self.nodeVar, onvalue="On", offvalue="Off", font=("Consolas", 12 ), bg='#0A7599', command=self.disableBtn)
@@ -137,12 +138,13 @@ class Application(tk.Frame):
 
         #entry
         self.input_entry.place(x=60, y=30, width=400)
-        self.nbrOfItr_entry.place(x=200, y=5, width=40)
+        self.nbrOfItr_entry.place(x=170, y=5, width=40)
 
         #chekbox
         self.node_checkBox.place(x=0, y=40)
         self.edge_checkBox.place(x=0, y=70)
         self.bl_checkBox.place(x=0, y=100)
+    
 
 root = tk.Tk()
 #set the window
