@@ -46,7 +46,6 @@ class Application(tk.Frame):
         """
         This method will display the graph when the button "show graph" is clicked
         """
-        url = self.input_entry.get()
         #checks if the input URL is valid 
         self.G.drawGraph(self.nodes, self.edges, self.nodeVar.get(), self.edgeVar.get())
         self.G.showGraph()
