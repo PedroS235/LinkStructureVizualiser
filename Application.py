@@ -11,21 +11,23 @@ class Application(tk.Frame):
         """
         super().__init__(master)
         self.master = master
-        self.create_widgets()
-        self.display_widgets()
-        self.node_checkBox.select()
-        self.edge_checkBox.deselect()
-        self.bl_checkBox.deselect()
-        self.nbrOfItr_entry.insert(0, 1)
-        self.input_entry.insert(0, "https://infallible-varahamihira-e94f86.netlify.app/")
+        self.create_widgets() #creates all the widgets
+        self.display_widgets()  #Displays all the widgets
+        self.node_checkBox.select() #sets the default 
+        self.edge_checkBox.deselect()   #sets the default 
+        self.bl_checkBox.deselect() #sets the default 
+        self.nbrOfItr_entry.insert(0, 1) #sets the default 
+        self.input_entry.insert(0, "https://infallible-varahamihira-e94f86.netlify.app/") #inputs to the entry input the url from the testing website just to show an example
+        self.prev_input_val = "" #this is the variable for the input entry, this variable holds the privious value that was in the entry
+        self.prev_iterations_val = "" #this is the variable for the input entry, this variable holds the privious value that was in the entry
 
     def create_graph(self):
         """
         This method creates the graph when the button input is clicked
         """
-        self.ws = WebScrapper.WebScrapper()
-        self.G = Graph.Graph()
-        url = self.input_entry.get().replace(" ", "")
+        self.ws = WebScrapper.WebScrapper() #instanciates the class Webscraper
+        self.G = Graph.Graph() #instanciates the class Graph
+        url = self.input_entry.get().replace(" ", "") #gets the url from the entry and if it contains whitespaces it removes them
         #checks if the input URL is valid 
         if self.ws.is_valid(url):
             self.ws.set_nbr_iterations(int(self.nbrOfItr_entry.get()))
@@ -37,7 +39,6 @@ class Application(tk.Frame):
             self.show_btn['state'] = tk.NORMAL
             self.nodeData_btn['state'] = tk.NORMAL
             self.edgeData_btn['state'] = tk.NORMAL
-            self.prev_nbr_of_itr = self.nbrOfItr_entry.get()
         else:
             messagebox.showerror("Invalid URL", "Please make sure that the URL is valid!")
 
@@ -47,13 +48,8 @@ class Application(tk.Frame):
         """
         url = self.input_entry.get()
         #checks if the input URL is valid 
-        if self.ws.is_valid(url):
-            if self.prev_nbr_of_itr != self.nbrOfItr_entry.get():
-                self.create_graph()
-            self.G.drawGraph(self.nodes, self.edges, self.nodeVar.get(), self.edgeVar.get())
-            self.G.showGraph()
-        else:
-            messagebox.showerror("Invalid URL", "Please make sure that the URL is valid!")
+        self.G.drawGraph(self.nodes, self.edges, self.nodeVar.get(), self.edgeVar.get())
+        self.G.showGraph()
 
     def open_nodeData(self):
         """
@@ -85,6 +81,16 @@ class Application(tk.Frame):
         self.show_btn['state'] = tk.DISABLED
         self.nodeData_btn['state'] = tk.DISABLED
         self.edgeData_btn['state'] = tk.DISABLED
+    
+    def inputStateChanged(self, event):
+        value=self.input_entry.get()
+        self.prev_input_val = value
+        self.disableBtn()
+    
+    def iterationsStateChanged(self, event):
+        value=self.input_entry.get()
+        self.prev_iterations_val = value
+        self.disableBtn()
 
     def create_widgets(self):
         """
@@ -94,6 +100,8 @@ class Application(tk.Frame):
         self.nodeVar = tk.StringVar()
         self.edgeVar = tk.StringVar()
         self.blVar = tk.BooleanVar()
+        self.curr_input_val = tk.StringVar()
+        self.curr_iterations_val = tk.StringVar()
 
         #settings frame
         self.settings_frame = tk.LabelFrame(root, text="Settings", bg='#0A7599')
@@ -107,16 +115,18 @@ class Application(tk.Frame):
         self.instructions_btn = tk.Button(root, text="Instructions", padx=5, pady=2, font=("Consolas", 14), border=0)
         
         #creating the entrys
-        self.input_entry = tk.Entry(root, font=("Consolas", 14))
-        self.nbrOfItr_entry = tk.Entry(self.settings_frame, text=1, font=("Consolas", 12))
+        self.input_entry = tk.Entry(root, textvariable=self.curr_input_val, font=("Consolas", 14))
+        self.input_entry.bind("<KeyRelease>", self.inputStateChanged)   #this binds the entry to any key in the keyboard so that once the user modifies the buttons -> DISABLE
+        self.nbrOfItr_entry = tk.Entry(self.settings_frame, text=1, font=("Consolas", 12), textvariable=self.curr_iterations_val)
+        self.nbrOfItr_entry.bind("<KeyRelease>", self.iterationsStateChanged)   #this binds the entry to any key in the keyboard so that once the user modifies the buttons -> DISABLE
         
         #Creating th labels
         self.input_label = tk.Label(root, text="URL:", font=("Consolas", 14), bg='#0A7599')
         self.nbrOfItr_label = tk.Label(self.settings_frame, text="Number of pages to crawl:", font=("Consolas", 12), bg='#0A7599')
 
         #creating the chekboxes
-        self.node_checkBox = tk.Checkbutton(self.settings_frame, text="Node color", variable=self.nodeVar, onvalue="On", offvalue="Off", font=("Consolas", 12 ), bg='#0A7599', command=self.disableBtn)
-        self.edge_checkBox = tk.Checkbutton(self.settings_frame, text="Edge color", variable=self.edgeVar, onvalue="On", offvalue="Off", font=("Consolas", 12), bg='#0A7599', command=self.disableBtn)
+        self.node_checkBox = tk.Checkbutton(self.settings_frame, text="Node color", variable=self.nodeVar, onvalue="On", offvalue="Off", font=("Consolas", 12 ), bg='#0A7599')
+        self.edge_checkBox = tk.Checkbutton(self.settings_frame, text="Edge color", variable=self.edgeVar, onvalue="On", offvalue="Off", font=("Consolas", 12), bg='#0A7599')
         self.bl_checkBox = tk.Checkbutton(self.settings_frame, text="Broken-Link", variable=self.blVar, onvalue=True, offvalue=False, font=("Consolas", 12), bg='#0A7599', command=self.disableBtn)
 
     def display_widgets(self):
@@ -145,7 +155,6 @@ class Application(tk.Frame):
         self.edge_checkBox.place(x=0, y=70)
         self.bl_checkBox.place(x=0, y=100)
     
-
 root = tk.Tk()
 #set the window
 root.title('Link Structure Vizualizer')
@@ -161,7 +170,7 @@ windowHeight = root.winfo_reqheight()
 positionRight = int(root.winfo_screenwidth()/2 - windowWidth/2)
 positionDown = int(root.winfo_screenheight()/2 - windowHeight/2)
  
-# Positions the window in the center of the page.
+# Positions the window in the center of the screen.
 root.geometry("+{}+{}".format(positionRight, positionDown))
 
 #initialise the application
