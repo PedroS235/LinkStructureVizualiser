@@ -39,6 +39,12 @@ class Application(tk.Frame):
             self.show_btn['state'] = tk.NORMAL
             self.nodeData_btn['state'] = tk.NORMAL
             self.edgeData_btn['state'] = tk.NORMAL
+            if self.blVar.get() == True:
+                print('True')
+                self.brokenLink_btn['state'] = tk.NORMAL
+            else:
+                print('False')
+                self.brokenLink_btn['state'] = tk.DISABLED
         else:
             messagebox.showerror("Invalid URL", "Please make sure that the URL is valid!")
 
@@ -76,10 +82,24 @@ class Application(tk.Frame):
             opener ="open" if sys.platform == "darwin" else "xdg-open"
             subprocess.call([opener, "edges.txt"])
 
+    def open_broken_linkData(self):
+        """"
+        This method will open a .txt file, containing all the edges 
+        of the graph, when the button "View the edges data" is clicked
+        """
+        import os, sys, subprocess
+
+        if sys.platform == "win32":
+            os.startfile("broken-link.txt")
+        else:
+            opener ="open" if sys.platform == "darwin" else "xdg-open"
+            subprocess.call([opener, "broken-links.txt"])
+    
     def disableBtn(self):
         self.show_btn['state'] = tk.DISABLED
         self.nodeData_btn['state'] = tk.DISABLED
         self.edgeData_btn['state'] = tk.DISABLED
+        self.brokenLink_btn['state'] = tk.DISABLED
     
     def inputStateChanged(self, event):
         value=self.input_entry.get()
@@ -106,13 +126,13 @@ class Application(tk.Frame):
         self.settings_frame = tk.LabelFrame(root, text="Settings", bg='#0A7599')
 
         #creating the buttons
-        #, bg='#04A2D6', activebackground='#02EAFD', fg='#ffffff', activeforeground='#ffffff',
         self.input_btn = tk.Button(root, text="Input", padx=5, pady=2, font=("Consolas", 14), border=0, command=self.create_graph)
         self.show_btn = tk.Button(root, text="View the graph", padx=5, pady=2, state=tk.DISABLED,  font=("Consolas", 14), border=0, command=self.show_graph)
         self.nodeData_btn = tk.Button(root, text="View the nodes data", padx=5, pady=2, state=tk.DISABLED, font=("Consolas", 14), border=0, command=self.open_nodeData)
         self.edgeData_btn = tk.Button(root, text="View the edges data", padx=5, pady=2, state=tk.DISABLED, font=("Consolas", 14), border=0, command=self.open_edgeData)
-        self.instructions_btn = tk.Button(root, text="Instructions", padx=5, pady=2, font=("Consolas", 14), border=0)
+        self.brokenLink_btn = tk.Button(root, text='View the broken-links data', padx=5, pady=2, state=tk.DISABLED, font=("Consolas", 14), border=0, command=self.open_broken_linkData)
         
+
         #creating the entrys
         self.input_entry = tk.Entry(root, textvariable=self.curr_input_val, font=("Consolas", 14))
         self.input_entry.bind("<KeyRelease>", self.inputStateChanged)   #this binds the entry to any key in the keyboard so that once the user modifies the buttons -> DISABLE
@@ -139,7 +159,8 @@ class Application(tk.Frame):
         self.show_btn.place(x=470, y=100, height=30)
         self.nodeData_btn.place(x=470, y=140, height=30)
         self.edgeData_btn.place(x=470, y=180, height=30)
-        #self.instructions_btnplace(x=10, y=50)
+        self.brokenLink_btn.place(x=470, y=220, height=30)
+        
 
         #labels
         self.input_label.place(x=10, y=30)
@@ -158,7 +179,7 @@ root = tk.Tk()
 #set the window
 root.title('Link Structure Vizualizer')
 root.iconbitmap('images/icon.ico')
-root.geometry("700x250")
+root.geometry("700x280")
 root.configure(bg='#0A7599')
 
 # Gets the requested values of the height and widht.
