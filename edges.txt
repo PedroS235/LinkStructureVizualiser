@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [1] -> (https://relogioonline.com.br/, https://relogioonline.com.br/)
 [2] -> (https://relogioonline.com.br/, https://relogioonline.com.br/feriados/)
 [3] -> (https://relogioonline.com.br/, https://relogioonline.com.br/)
@@ -37,3 +38,10 @@
 [37] -> (https://relogioonline.com.br/, https://relogioonline.com.br/privacy/)
 ===================================
 Total number of edges: 37
+=======
+[1] -> (https://infallible-varahamihira-e94f86.netlify.app/, https://infallible-varahamihira-e94f86.netlify.app/about.html)
+[2] -> (https://infallible-varahamihira-e94f86.netlify.app/, https://infallible-varahamihira-e94f86.netlify.app/contact.html)
+[3] -> (https://infallible-varahamihira-e94f86.netlify.app/, https://infallible-varahamihira-e94f86.netlify.app/explanation.html)
+===================================
+Total number of edges: 3
+>>>>>>> 0e4da69e692238b8a5bb74a420aaa846c61ab0a4

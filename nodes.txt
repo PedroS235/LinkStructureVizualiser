@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [1] -> https://relogioonline.com.br/
 [2] -> https://relogioonline.com.br/feriados/
 [3] -> https://relogioonline.com.br/temporizador/
@@ -32,3 +33,11 @@
 [32] -> https://relogioonline.com.br/privacy/
 ===================================
 Total number of nodes: 32
+=======
+[1] -> https://infallible-varahamihira-e94f86.netlify.app/
+[2] -> https://infallible-varahamihira-e94f86.netlify.app/about.html
+[3] -> https://infallible-varahamihira-e94f86.netlify.app/contact.html
+[4] -> https://infallible-varahamihira-e94f86.netlify.app/explanation.html
+===================================
+Total number of nodes: 4
+>>>>>>> 0e4da69e692238b8a5bb74a420aaa846c61ab0a4
