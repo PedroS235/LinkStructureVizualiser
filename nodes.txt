@@ -1,7 +1,34 @@
-[1] -> https://infallible-varahamihira-e94f86.netlify.app/
-[2] -> https://infallible-varahamihira-e94f86.netlify.app/about.html
-[3] -> https://infallible-varahamihira-e94f86.netlify.app/contact.html
-[4] -> https://infallible-varahamihira-e94f86.netlify.app/explanation.html
-[5] -> https://infallible-varahamihira-e94f86.netlify.app/brokenlink.html
+[1] -> https://relogioonline.com.br/
+[2] -> https://relogioonline.com.br/feriados/
+[3] -> https://relogioonline.com.br/temporizador/
+[4] -> https://relogioonline.com.br/cronometro/
+[5] -> https://relogioonline.com.br/horario/
+[6] -> https://relogioonline.com.br/despertar-4-00/
+[7] -> https://relogioonline.com.br/despertar-4-30/
+[8] -> https://relogioonline.com.br/despertar-5-00/
+[9] -> https://relogioonline.com.br/despertar-5-15/
+[10] -> https://relogioonline.com.br/despertar-5-30/
+[11] -> https://relogioonline.com.br/despertar-5-45/
+[12] -> https://relogioonline.com.br/despertar-6-00/
+[13] -> https://relogioonline.com.br/despertar-6-15/
+[14] -> https://relogioonline.com.br/despertar-6-30/
+[15] -> https://relogioonline.com.br/despertar-6-45/
+[16] -> https://relogioonline.com.br/despertar-7-00/
+[17] -> https://relogioonline.com.br/despertar-7-15/
+[18] -> https://relogioonline.com.br/despertar-7-30/
+[19] -> https://relogioonline.com.br/despertar-7-45/
+[20] -> https://relogioonline.com.br/despertar-8-00/
+[21] -> https://relogioonline.com.br/despertar-8-15/
+[22] -> https://relogioonline.com.br/despertar-8-30/
+[23] -> https://relogioonline.com.br/despertar-8-45/
+[24] -> https://relogioonline.com.br/despertar-9-00/
+[25] -> https://relogioonline.com.br/despertar-10-00/
+[26] -> https://relogioonline.com.br/despertar-11-00/
+[27] -> https://relogioonline.com.br/despertar-12-00/
+[28] -> https://relogioonline.com.br/despertar-13-00/
+[29] -> https://relogioonline.com.br/despertar-14-00/
+[30] -> https://relogioonline.com.br/contacts/
+[31] -> https://relogioonline.com.br/terms/
+[32] -> https://relogioonline.com.br/privacy/
 ===================================
-Total number of nodes: 5
+Total number of nodes: 32
