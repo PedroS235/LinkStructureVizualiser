@@ -25,28 +25,31 @@ class Application(tk.Frame):
         """
         This method creates the graph when the button input is clicked
         """
-        self.ws = WebScrapper.WebScrapper() #instanciates the class Webscraper
-        self.G = Graph.Graph() #instanciates the class Graph
-        url = self.input_entry.get().replace(" ", "") #gets the url from the entry and if it contains whitespaces it removes them
-        #checks if the input URL is valid 
-        if self.ws.is_valid(url):
-            self.ws.set_nbr_iterations(int(self.nbrOfItr_entry.get()))
-            self.ws.setBrokenLink(self.blVar.get())
-            self.ws.crawl(url)
-            self.nodes = self.ws.getNodes()
-            self.edges = self.ws.getEdges()
-            self.ws.writeNodesEdgesToAFile()
-            self.show_btn['state'] = tk.NORMAL
-            self.nodeData_btn['state'] = tk.NORMAL
-            self.edgeData_btn['state'] = tk.NORMAL
-            if self.blVar.get() == True:
-                print('True')
-                self.brokenLink_btn['state'] = tk.NORMAL
+        try:
+            self.ws = WebScrapper.WebScrapper() #instanciates the class Webscraper
+            self.G = Graph.Graph() #instanciates the class Graph
+            url = self.input_entry.get().replace(" ", "") #gets the url from the entry and if it contains whitespaces it removes them
+            #checks if the input URL is valid 
+            if self.ws.is_valid(url):
+                self.ws.set_nbr_iterations(int(self.nbrOfItr_entry.get()))
+                self.ws.setBrokenLink(self.blVar.get())
+                self.ws.crawl(url)
+                self.nodes = self.ws.getNodes()
+                self.edges = self.ws.getEdges()
+                self.ws.writeNodesEdgesToAFile()
+                self.show_btn['state'] = tk.NORMAL
+                self.nodeData_btn['state'] = tk.NORMAL
+                self.edgeData_btn['state'] = tk.NORMAL
+                if self.blVar.get() == True:
+                    print('True')
+                    self.brokenLink_btn['state'] = tk.NORMAL
+                else:
+                    print('False')
+                    self.brokenLink_btn['state'] = tk.DISABLED
             else:
-                print('False')
-                self.brokenLink_btn['state'] = tk.DISABLED
-        else:
-            messagebox.showerror("Invalid URL", "Please make sure that the URL is valid!")
+                messagebox.showerror("Invalid URL", "Please make sure that the URL is valid!")
+        except e:
+            messagebox.showerror("error", e)
 
     def show_graph(self):
         """
