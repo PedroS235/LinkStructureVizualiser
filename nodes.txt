@@ -2,6 +2,5 @@
 [2] -> https://infallible-varahamihira-e94f86.netlify.app/about.html
 [3] -> https://infallible-varahamihira-e94f86.netlify.app/contact.html
 [4] -> https://infallible-varahamihira-e94f86.netlify.app/explanation.html
-[5] -> https://infallible-varahamihira-e94f86.netlify.app/brokenlink.html
 ===================================
-Total number of nodes: 5
+Total number of nodes: 4

@@ -15,7 +15,7 @@ class Application(tk.Frame):
         self.display_widgets()  #Displays all the widgets
         self.node_checkBox.select() #sets the default 
         self.edge_checkBox.deselect()   #sets the default 
-        self.bl_checkBox.deselect() #sets the default 
+        self.bl_checkBox.select() #sets the default 
         self.nbrOfItr_entry.insert(0, 1) #sets the default 
         self.input_entry.insert(0, "https://infallible-varahamihira-e94f86.netlify.app/") #inputs to the entry input the url from the testing website just to show an example
         self.prev_input_val = "" #this is the variable for the input entry, this variable holds the privious value that was in the entry
