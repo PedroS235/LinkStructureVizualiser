@@ -71,10 +71,10 @@ class Application(tk.Frame):
         import os, sys, subprocess
 
         if sys.platform == "win32":
-            os.startfile("nodes.txt")
+            os.startfile("data/nodes.txt")
         else:
             opener ="open" if sys.platform == "darwin" else "xdg-open"
-            subprocess.call([opener, "nodes.txt"])
+            subprocess.call([opener, "data/nodes.txt"])
 
     def open_edgeData(self):
         """"
@@ -84,10 +84,10 @@ class Application(tk.Frame):
         import os, sys, subprocess
 
         if sys.platform == "win32":
-            os.startfile("edges.txt")
+            os.startfile("data/edges.txt")
         else:
             opener ="open" if sys.platform == "darwin" else "xdg-open"
-            subprocess.call([opener, "edges.txt"])
+            subprocess.call([opener, "data/edges.txt"])
 
     def open_broken_linkData(self):
         """"
@@ -97,10 +97,10 @@ class Application(tk.Frame):
         import os, sys, subprocess
 
         if sys.platform == "win32":
-            os.startfile("broken-link.txt")
+            os.startfile("data/broken-link.txt")
         else:
             opener ="open" if sys.platform == "darwin" else "xdg-open"
-            subprocess.call([opener, "broken-links.txt"])
+            subprocess.call([opener, "data/broken-links.txt"])
     
     def disableBtn(self):
         self.show_btn['state'] = tk.DISABLED

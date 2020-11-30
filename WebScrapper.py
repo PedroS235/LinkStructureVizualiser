@@ -116,9 +116,9 @@ class WebScrapper():
         This funtions writes to a nodes.txt file, the nodes from the graph 'G',
         and to a edges.txt file, the edges from the graph 'G'. 
         """  
-        nodes_file = open('nodes.txt', 'w')
-        edges_file = open('edges.txt', 'w')
-        brokenLinks_file = open('broken-links.txt', 'w')
+        nodes_file = open('data/nodes.txt', 'w')
+        edges_file = open('data/edges.txt', 'w')
+        brokenLinks_file = open('data/broken-links.txt', 'w')
         count = 0
         for node in self.nodes:
             count+=1
