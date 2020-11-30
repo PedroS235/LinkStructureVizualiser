@@ -14,7 +14,7 @@ The functionality of the buttons:
 * **View the nodes/edges/broken-links data:** Allows you to view the data extracted by the program in form of a .txt file.
 
 ## REQUIREMENTS To Run the Program
-> **To be able to run this program, you will need to install some libraries which are:**
+> **To be able to run this program you need to have Python3 installed in your machine and you will also need to install some libraries which are:**
 
 ```
  - requests (in the terminal: pip install requests)
