@@ -1,5 +1,16 @@
+# import Graph
+# import WebScrapper
 import tkinter as tk
 from tkinter import messagebox
+
+run = True
+try:
+    import Graph
+    import WebScrapper
+    run = True
+except ModuleNotFoundError as e:
+    messagebox.showerror(" Module Not Found Error", "Please make sure to install all the prerequisits before running the program!\nThe Module not found is networkx")
+    run = False
 
 class Application(tk.Frame):
     def __init__(self, master=None):
@@ -7,12 +18,6 @@ class Application(tk.Frame):
         This is the constructor of this application
         and it sets the default values
         """
-        try:
-            import Graph
-            import WebScrapper
-        except ModuleNotFoundError as e:
-            messagebox.showerror(" Module Not Found Error", "Please make sure to install all the prerequisits before running the program!\nThe Module not found is networkx")
-            master.destroy()
         super().__init__(master)
         self.master = master
         self.create_widgets() #creates all the widgets
@@ -178,25 +183,26 @@ class Application(tk.Frame):
         self.node_checkBox.place(x=0, y=40)
         self.edge_checkBox.place(x=0, y=70)
         self.bl_checkBox.place(x=0, y=100)
+
+if run:    
+    root = tk.Tk()
+    #set the window
+    root.title('Link Structure Vizualizer')
+    root.iconbitmap('images/icon.ico')
+    root.geometry("700x280")
+    root.configure(bg='#0A7599')
+
+    # Gets the requested values of the height and widht.
+    windowWidth = root.winfo_reqwidth()
+    windowHeight = root.winfo_reqheight()
     
-root = tk.Tk()
-#set the window
-root.title('Link Structure Vizualizer')
-root.iconbitmap('images/icon.ico')
-root.geometry("700x280")
-root.configure(bg='#0A7599')
+    # Gets both half the screen width/height and window width/height
+    positionRight = int(root.winfo_screenwidth()/2 - windowWidth/2)
+    positionDown = int(root.winfo_screenheight()/2 - windowHeight/2)
+    
+    # Positions the window in the center of the screen.
+    root.geometry("+{}+{}".format(positionRight, positionDown))
 
-# Gets the requested values of the height and widht.
-windowWidth = root.winfo_reqwidth()
-windowHeight = root.winfo_reqheight()
- 
-# Gets both half the screen width/height and window width/height
-positionRight = int(root.winfo_screenwidth()/2 - windowWidth/2)
-positionDown = int(root.winfo_screenheight()/2 - windowHeight/2)
- 
-# Positions the window in the center of the screen.
-root.geometry("+{}+{}".format(positionRight, positionDown))
-
-#initialise the application
-app = Application(master=root)
-app.mainloop()
+    #initialise the application
+    app = Application(master=root)
+    app.mainloop()

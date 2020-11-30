@@ -1,3 +1,2 @@
-[1] -> https://infallible-varahamihira-e94f86.netlify.app/brokenlink.html
 ===================================
-Total number of broken links: 1
+Total number of broken links: 0
