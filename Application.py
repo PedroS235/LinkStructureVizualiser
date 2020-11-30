@@ -9,7 +9,7 @@ try:
     import WebScrapper
     run = True
 except ModuleNotFoundError as e:
-    messagebox.showerror(" Module Not Found Error", "Please make sure to install all the prerequisits before running the program!\nThe Module not found is networkx")
+    messagebox.showerror(" Module Not Found Error", f"Please make sure to install all the prerequisits before running the program!\nError raised: {e}")
     run = False
 
 class Application(tk.Frame):
@@ -49,10 +49,8 @@ class Application(tk.Frame):
             self.nodeData_btn['state'] = tk.NORMAL
             self.edgeData_btn['state'] = tk.NORMAL
             if self.blVar.get() == True:
-                print('True')
                 self.brokenLink_btn['state'] = tk.NORMAL
             else:
-                print('False')
                 self.brokenLink_btn['state'] = tk.DISABLED
         else:
             messagebox.showerror("Invalid URL", "Please make sure that the URL is valid!")
