@@ -13,5 +13,19 @@ The functionality of the buttons:
 * **View the graph:** Shows the graph generated;
 * **View the nodes/edges/broken-links data:** Allows you to view the data extracted by the program in form of a .txt file.
 
+## REQUIREMENTS To Run the Program
+> **To be able to run this program, you will need to install some libraries which are:**
+
+```
+ - requests (in the terminal: pip install requests)
+    
+ - BeatifullSoup4 (in the terminal: pip install beautifulsoup4)
+    
+ - networkX (in the terminal: pip install networkx)
+    
+ - matplotlib (in the terminal: pip install matplotlib)
+    
+ - spicy (in the terminal: pip intall spicy)
+```
 ---
 ## Congratulations! Your are now ready to use the program, hope you like it! 😀
