@@ -159,10 +159,10 @@ class Application(tk.Frame):
         """
         This method displays all the widgets on the interface
         """
-        self.settings_frame.place(x=10, y=80, width=225, height=120)
+        self.settings_frame.place(x=10, y=80, width=300, height=150)
 
         #buttons
-        self.input_btn.place(x=470, y=30, height=30)
+        self.input_btn.place(x=580, y=30, height=30)
         self.show_btn.place(x=470, y=100, height=30)
         self.nodeData_btn.place(x=470, y=140, height=30)
         self.edgeData_btn.place(x=470, y=180, height=30)
@@ -174,7 +174,7 @@ class Application(tk.Frame):
         self.nbrOfItr_label.grid(column=0, row=0)#place(x=0, y=5)
 
         #entry
-        self.input_entry.place(x=60, y=30, width=400)
+        self.input_entry.place(x=60, y=30, width=500)
         self.nbrOfItr_entry.grid(column=1, row=0)#place(x=235, y=8, width=40) #170, 5
 
         #chekbox
@@ -187,7 +187,7 @@ if run:
     #set the window
     root.title('Link Structure Vizualizer')
     root.iconbitmap('images/icon.ico')
-    root.geometry("700x280")
+    root.geometry("760x260")
     root.configure(bg='#0A7599')
 
     # Gets the requested values of the height and widht.
