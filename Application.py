@@ -143,7 +143,7 @@ class Application(tk.Frame):
         #creating the entrys
         self.input_entry = tk.Entry(root, textvariable=self.curr_input_val, font=("Consolas", 14))
         self.input_entry.bind("<KeyRelease>", self.inputStateChanged)   #this binds the entry to any key in the keyboard so that once the user modifies the buttons -> DISABLE
-        self.nbrOfItr_entry = tk.Entry(self.settings_frame, text=1, font=("Consolas", 12), textvariable=self.curr_iterations_val)
+        self.nbrOfItr_entry = tk.Entry(self.settings_frame, text=1, font=("Consolas", 12), textvariable=self.curr_iterations_val, width=3)
         self.nbrOfItr_entry.bind("<KeyRelease>", self.iterationsStateChanged)   #this binds the entry to any key in the keyboard so that once the user modifies the buttons -> DISABLE
         
         #Creating th labels
@@ -159,7 +159,7 @@ class Application(tk.Frame):
         """
         This method displays all the widgets on the interface
         """
-        self.settings_frame.place(x=10, y=80, width=300, height=150)
+        self.settings_frame.place(x=10, y=80, width=225, height=120)
 
         #buttons
         self.input_btn.place(x=470, y=30, height=30)
@@ -171,16 +171,16 @@ class Application(tk.Frame):
 
         #labels
         self.input_label.place(x=10, y=30)
-        self.nbrOfItr_label.place(x=0, y=5)
+        self.nbrOfItr_label.grid(column=0, row=0)#place(x=0, y=5)
 
         #entry
         self.input_entry.place(x=60, y=30, width=400)
-        self.nbrOfItr_entry.place(x=170, y=5, width=40)
+        self.nbrOfItr_entry.grid(column=1, row=0)#place(x=235, y=8, width=40) #170, 5
 
         #chekbox
-        self.node_checkBox.place(x=0, y=40)
-        self.edge_checkBox.place(x=0, y=70)
-        self.bl_checkBox.place(x=0, y=100)
+        self.node_checkBox.grid(column=0, row=1, sticky='W')#place(x=0, y=40)
+        self.edge_checkBox.grid(column=0, row=2, sticky='W')#place(x=0, y=70)
+        self.bl_checkBox.grid(column=0, row=3, sticky='W')#place(x=0, y=100)
 
 if run:    
     root = tk.Tk()
