@@ -95,6 +95,7 @@ class WebScrapper():
                         self.edges.append((url, href))
                         if href not in self.nodes:
                             self.nodes.append(href)
+    
     def crawl(self, url):
         """
         This function crawls a website and scrapes all the links from it.

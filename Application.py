@@ -71,7 +71,7 @@ class Application(tk.Frame):
         import os, sys, subprocess
 
         if sys.platform == "win32":
-            os.startfile("data/nodes.txt")
+            os.startfile("data\\nodes.txt")
         else:
             opener ="open" if sys.platform == "darwin" else "xdg-open"
             subprocess.call([opener, "data/nodes.txt"])
@@ -84,7 +84,7 @@ class Application(tk.Frame):
         import os, sys, subprocess
 
         if sys.platform == "win32":
-            os.startfile("data/edges.txt")
+            os.startfile("data\\edges.txt")
         else:
             opener ="open" if sys.platform == "darwin" else "xdg-open"
             subprocess.call([opener, "data/edges.txt"])
@@ -97,7 +97,7 @@ class Application(tk.Frame):
         import os, sys, subprocess
 
         if sys.platform == "win32":
-            os.startfile("data/broken-link.txt")
+            os.startfile("data\\broken-links.txt")
         else:
             opener ="open" if sys.platform == "darwin" else "xdg-open"
             subprocess.call([opener, "data/broken-links.txt"])
