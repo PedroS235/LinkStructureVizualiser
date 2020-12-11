@@ -1,11 +1,5 @@
 [1] -> (https://infallible-varahamihira-e94f86.netlify.app/, https://infallible-varahamihira-e94f86.netlify.app/about.html)
 [2] -> (https://infallible-varahamihira-e94f86.netlify.app/, https://infallible-varahamihira-e94f86.netlify.app/contact.html)
 [3] -> (https://infallible-varahamihira-e94f86.netlify.app/, https://infallible-varahamihira-e94f86.netlify.app/explanation.html)
-[4] -> (https://infallible-varahamihira-e94f86.netlify.app/about.html, https://infallible-varahamihira-e94f86.netlify.app/)
-[5] -> (https://infallible-varahamihira-e94f86.netlify.app/about.html, https://infallible-varahamihira-e94f86.netlify.app/contact.html)
-[6] -> (https://infallible-varahamihira-e94f86.netlify.app/contact.html, https://infallible-varahamihira-e94f86.netlify.app/)
-[7] -> (https://infallible-varahamihira-e94f86.netlify.app/explanation.html, https://infallible-varahamihira-e94f86.netlify.app/)
-[8] -> (https://infallible-varahamihira-e94f86.netlify.app/explanation.html, https://infallible-varahamihira-e94f86.netlify.app/link.html)
-[9] -> (https://infallible-varahamihira-e94f86.netlify.app/explanation.html, https://infallible-varahamihira-e94f86.netlify.app/graph.html)
 ===================================
-Total number of edges: 9
+Total number of edges: 3
