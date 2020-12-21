@@ -1,5 +1,4 @@
-# import Graph
-# import WebScrapper
+import requests
 import tkinter as tk
 from tkinter import messagebox
 
@@ -38,7 +37,7 @@ class Application(tk.Frame):
         self.G = Graph.Graph() #instanciates the class Graph
         url = self.input_entry.get().replace(" ", "") #gets the url from the entry and if it contains whitespaces it removes them
         #checks if the input URL is valid 
-        if self.ws.is_valid(url):
+        if self.ws.is_valid(url) and requests.get(url):
             self.ws.set_nbr_iterations(int(self.nbrOfItr_entry.get()))
             self.ws.setBrokenLink(self.blVar.get())
             self.ws.crawl(url)

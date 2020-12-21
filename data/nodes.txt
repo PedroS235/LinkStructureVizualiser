@@ -1,19 +1,7 @@
-[1] -> https://www.ameco.lu/
-[2] -> https://www.ameco.lu/de/
-[3] -> https://www.ameco.lu/en/
-[4] -> https://www.ameco.lu/a-propos/
-[5] -> https://www.ameco.lu/services/
-[6] -> https://www.ameco.lu/actualites/
-[7] -> https://www.ameco.lu/offres-d-emploi/
-[8] -> https://www.ameco.lu/contact/
-[9] -> https://www.ameco.lu/services/soudage-industriel/
-[10] -> https://www.ameco.lu/services/services-industrie/
-[11] -> https://www.ameco.lu/services/bureau-etudes/
-[12] -> https://www.ameco.lu/services/securite-routiere/
-[13] -> https://www.ameco.lu/actualites/nos-services-pour-le-secteur-de-la-construction/
-[14] -> https://www.ameco.lu/actualites/job/
-[15] -> https://www.ameco.lu/actualites/made-in-luxembourg/
-[16] -> https://www.ameco.lu/offres-d-emploi/tourneur-cnc-mf/
-[17] -> https://www.ameco.lu/mentions-legales/
+[1] -> http://infallible-varahamihira-e94f86.netlify.app/
+[2] -> http://infallible-varahamihira-e94f86.netlify.app/about.html
+[3] -> http://infallible-varahamihira-e94f86.netlify.app/contact.html
+[4] -> http://infallible-varahamihira-e94f86.netlify.app/explanation.html
+[5] -> http://infallible-varahamihira-e94f86.netlify.app/brokenlink.html
 ===================================
-Total number of nodes: 17
+Total number of nodes: 5
