@@ -182,25 +182,26 @@ class Application(tk.Frame):
         self.edge_checkBox.grid(column=0, row=2, sticky='W')#place(x=0, y=70)
         self.bl_checkBox.grid(column=0, row=3, sticky='W')#place(x=0, y=100)
 
-if run:    
-    root = tk.Tk()
-    #set the window
-    root.title('Link Structure Vizualizer')
-    root.iconbitmap('images/icon.ico')
-    root.geometry("760x260")
-    root.configure(bg='#0A7599')
+if __name__ == '__main__': 
+    if run:    
+        root = tk.Tk()
+        #set the window
+        root.title('Link Structure Vizualizer')
+        root.iconbitmap('images/icon.ico')
+        root.geometry("760x260")
+        root.configure(bg='#0A7599')
 
-    # Gets the requested values of the height and widht.
-    windowWidth = root.winfo_reqwidth()
-    windowHeight = root.winfo_reqheight()
-    
-    # Gets both half the screen width/height and window width/height
-    positionRight = int(root.winfo_screenwidth()/2 - windowWidth/2)
-    positionDown = int(root.winfo_screenheight()/2 - windowHeight/2)
-    
-    # Positions the window in the center of the screen.
-    root.geometry("+{}+{}".format(positionRight, positionDown))
+        # Gets the requested values of the height and widht.
+        windowWidth = root.winfo_reqwidth()
+        windowHeight = root.winfo_reqheight()
+        
+        # Gets both half the screen width/height and window width/height
+        positionRight = int(root.winfo_screenwidth()/2 - windowWidth/2)
+        positionDown = int(root.winfo_screenheight()/2 - windowHeight/2)
+        
+        # Positions the window in the center of the screen.
+        root.geometry("+{}+{}".format(positionRight, positionDown))
 
-    #initialise the application
-    app = Application(master=root)
-    app.mainloop()
+        #initialise the application
+        app = Application(master=root)
+        app.mainloop()
